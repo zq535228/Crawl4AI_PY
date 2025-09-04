@@ -1,0 +1,1 @@
+docker compose down && docker build --no-cache -t crawl4ai-app . && docker compose up -d

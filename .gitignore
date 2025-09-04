@@ -1,0 +1,7 @@
+/.cursor
+/.dockerignore
+/.specstory
+/__pycache__
+/crawler_logs.txt
+/myenv
+/output

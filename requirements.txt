@@ -1,0 +1,27 @@
+# 核心爬虫依赖
+crawl4ai==0.7.4
+beautifulsoup4==4.13.5
+
+# HTTP 客户端和异步支持
+aiohttp==3.12.15
+httpx==0.28.1
+
+# 数据处理和解析
+lxml==5.4.0
+Pillow==11.3.0
+
+# 其他工具库
+requests==2.32.5
+python-dotenv==1.1.1
+
+# Gradio Web 界面依赖
+gradio>=4.0.0
+matplotlib>=3.5.0
+pandas>=1.5.0
+
+# 热重载支持
+watchdog>=4.0.0
+
+# 可选：如果需要更多功能
+# playwright==1.55.0  # crawl4ai 会自动安装
+# fake-useragent==2.2.0  # 用于随机化用户代理
