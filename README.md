@@ -2,6 +2,8 @@
 
 基于 Crawl4AI 的智能网页爬虫系统，支持批量抓取、数据管理和文件浏览。通过友好的 Web 界面，让网页数据抓取变得简单高效。
 
+项目演示地址：https://crawl4ai.renzhe.org
+
 ## ✨ 主要特性
 
 - 🚀 **智能递归爬取**：从起始 URL 开始，自动发现并抓取相关链接
@@ -33,29 +35,7 @@ Crawl4AI/
 
 ## 🚀 快速开始
 
-### 方式一：直接运行
-
-1. **克隆项目**
-   ```bash
-   git clone <项目地址>
-   cd Crawl4AI
-   ```
-
-2. **安装依赖**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **启动 Web 界面**
-   ```bash
-   python gradio_app.py
-   ```
-
-4. **访问界面**
-   - 本地环境：http://localhost:7862
-   - Docker 环境：http://localhost:7861
-
-### 方式二：使用虚拟环境
+### 方式一：使用虚拟环境
 
 1. **激活虚拟环境**
    ```bash
@@ -71,7 +51,7 @@ Crawl4AI/
    python gradio_app.py
    ```
 
-### 方式三：Docker 部署（推荐）
+### 方式二：Docker 部署（推荐）
 
 1. **构建并启动**
    ```bash
