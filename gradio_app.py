@@ -620,8 +620,11 @@ def get_statistics() -> Tuple[int, int, int, int, float]:
     )
 
 
-def get_links_by_status(status: str) -> pd.DataFrame:
-    """根据状态获取链接列表"""
+def get_links_by_status(status: str = None) -> pd.DataFrame:
+    """根据状态获取链接列表，如果status为None、空字符串或'None'则获取所有链接"""
+    # 如果status是字符串'None'，转换为None
+    if status == 'None':
+        status = None
     links = crawler_manager.db.get_links_by_status(status)
     if not links:
         return pd.DataFrame(columns=['URL', '标题', '状态', '发现时间', '抓取时间', '错误信息'])
@@ -1275,8 +1278,8 @@ def create_interface():
                         gr.Markdown("### 筛选和搜索")
                         
                         status_filter = gr.Dropdown(
-                            choices=['all', 'pending', 'success', 'failed'],
-                            value='all',
+                            choices=['None', 'pending', 'success', 'failed'],
+                            value='None',
                             label="按状态筛选",
                             info="选择要查看的链接状态"
                         )
@@ -1358,7 +1361,7 @@ def create_interface():
                 
                 # 页面加载时显示所有链接
                 demo.load(
-                    fn=lambda: get_links_by_status('success'),
+                    fn=lambda: get_links_by_status(),
                     outputs=[links_df]
                 )
             

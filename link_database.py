@@ -162,12 +162,12 @@ class LinkDatabase:
             print(f"更新链接失败状态失败：{url}，错误：{e}")
             return False
     
-    def get_links_by_status(self, status: str) -> List[Dict]:
+    def get_links_by_status(self, status: str = None) -> List[Dict]:
         """
         根据状态获取链接列表
         
         Args:
-            status: 状态（pending/success/failed）
+            status: 状态（pending/success/failed），如果为None或空字符串则获取所有链接
             
         Returns:
             List[Dict]: 链接信息列表
@@ -176,11 +176,19 @@ class LinkDatabase:
             with sqlite3.connect(self.db_path) as conn:
                 conn.row_factory = sqlite3.Row  # 使结果可以按列名访问
                 cursor = conn.cursor()
-                cursor.execute("""
-                    SELECT * FROM crawled_links 
-                    WHERE status = ? 
-                    ORDER BY discovered_at DESC
-                """, (status,))
+                
+                # 如果status为None或空字符串，获取所有链接
+                if not status or status.strip() == "":
+                    cursor.execute("""
+                        SELECT * FROM crawled_links 
+                        ORDER BY discovered_at DESC
+                    """)
+                else:
+                    cursor.execute("""
+                        SELECT * FROM crawled_links 
+                        WHERE status = ? 
+                        ORDER BY discovered_at DESC
+                    """, (status,))
                 return [dict(row) for row in cursor.fetchall()]
         except sqlite3.Error as e:
             print(f"查询链接失败，状态：{status}，错误：{e}")

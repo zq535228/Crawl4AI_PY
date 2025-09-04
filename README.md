@@ -4,6 +4,8 @@
 
 项目演示地址：https://crawl4ai.renzhe.org
 
+![Crawl4AI_PY](./preview.png)
+
 ## ✨ 主要特性
 
 - 🚀 **智能递归爬取**：从起始 URL 开始，自动发现并抓取相关链接
