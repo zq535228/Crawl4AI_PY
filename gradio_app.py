@@ -1085,7 +1085,7 @@ def create_interface():
     ) as demo:
         
         gr.Markdown("# 🕷️ 智慧爬虫系统 - 让数据成为AI的核心动力")
-        gr.Markdown("基于 Crawl4AI 的智能网页爬虫，支持批量抓取、数据管理和文件浏览 [https://crawl4ai.renzhe.org](https://crawl4ai.renzhe.org) [开源地址](https://github.com/zq535228/Crawl4AI_PY)")
+        gr.Markdown("[Crawl4AI_PY](https://crawl4ai.renzhe.org) 基于 Crawl4AI 的智能网页爬虫，支持批量抓取、数据管理和文件浏览  [开源地址](https://github.com/zq535228/Crawl4AI_PY)")
         
         with gr.Tabs():
             # 爬取控制标签页
@@ -1152,9 +1152,10 @@ def create_interface():
                 logs_output = gr.Textbox(
                     label="爬取日志",
                     lines=15,
-                    max_lines=20,
+                    max_lines=30,
                     interactive=False,
-                    show_copy_button=True
+                    show_copy_button=True,
+                    autoscroll=True  # 自动滚动到底部
                 )
                 
                 # 事件绑定
