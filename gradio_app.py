@@ -1104,8 +1104,8 @@ def create_interface():
                         )
                         
                         link_filter_input = gr.Textbox(
-                            label="链接包含字符过滤",
-                            placeholder="输入关键词过滤链接，多个关键词用逗号分隔，例如：news,article,blog,professional/infectious-diseases",
+                            label="链接包含字符",
+                            placeholder="输入关键词链接，多个关键词用逗号分隔，例如：news,article,blog,professional/infectious-diseases",
                             value="/infectious-diseases"
                         )
                         
